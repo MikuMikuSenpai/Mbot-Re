@@ -1,0 +1,32 @@
+services:
+  bot:
+    depends_on:
+      database:
+        condition: service_healthy
+    image: ghcr.io/mikumikusenpai/mbot-re:latest
+    env_file:
+      - .env
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CHANNEL_LOG_ID=${CHANNEL_LOG_ID}
+
+  database:
+    image: mysql
+    command: --event_scheduler=ON
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: mbot
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u$DB_USER", "-p$DB_PASSWORD"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./src/main/java/me/mbot/misc/db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
