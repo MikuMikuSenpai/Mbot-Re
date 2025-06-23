@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.mikumiq</groupId>
     <artifactId>mBOT</artifactId>
-    <!--    ALPHA : Internal Testing phase              -->
-    <!--    BETA : Exclusive Testing phase              -->
-    <!--    NOTHING : Full Release (production) phase   -->
-    <!--    x.y.z : x=major/y=minor/z=patch             -->
     <version>0.4.0-ALPHA</version>
 
     <properties>
@@ -55,20 +53,21 @@
     </build>
 
     <dependencies>
+        <!-- JDA -->
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
             <version>5.5.0</version>
         </dependency>
 
-        <!--    For DB    -->
+        <!-- MySQL Connector -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>9.2.0</version>
         </dependency>
 
-        <!--    Log stuff    -->
+        <!-- SLF4J Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -80,6 +79,33 @@
             <version>1.5.18</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- Lavaplayer -->
+        <dependency>
+            <groupId>com.sedmelluq</groupId>
+            <artifactId>lavaplayer</artifactId>
+            <version>1.3.77</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sedmelluq</groupId>
+            <artifactId>lavaplayer-natives</artifactId>
+            <version>1.3.77</version>
+        </dependency>
+
+        <!-- Lavalink Cl -->
+        <dependency>
+            <groupId>com.github.topjohnwu</groupId>
+            <artifactId>lavalink-client</artifactId>
+            <version>3.3.3</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
 </project>
