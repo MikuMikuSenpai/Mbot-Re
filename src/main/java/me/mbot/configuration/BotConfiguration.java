@@ -94,7 +94,7 @@ public class BotConfiguration {
      * @see me.mbot.main.Main
      * @return Singleton instance of mbot.
      */
-    // Don't touch this. This makes the instance accessible to the main method in
+    // Don't touch this. This makes the instance accessible to the main method.
     public static BotConfiguration getInstance() {
         return BotHolder.INSTANCE;
     }
