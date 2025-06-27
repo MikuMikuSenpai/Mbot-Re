@@ -84,8 +84,7 @@ public class BotConfiguration {
      * This class holds the bot instance, don't change or touch it unless you know what you are doing.
      */
     /*
-    Don't touch this. This makes it so that there is only one instance or only one object exists in memory of mbot
-    quite romantic, but more so that there is no chance of multiples and some weird bugs or resource waste.
+    Don't touch this. This makes it so that there is only one instance.
      */
     private static class BotHolder {
         private static final BotConfiguration INSTANCE = new BotConfiguration();
