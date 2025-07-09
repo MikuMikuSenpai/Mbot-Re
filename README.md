@@ -1,7 +1,7 @@
 # Mbot - Main Document
 Build with [JDA](https://github.com/discord-jda/JDA).
 
-## Reference to other docs
+## Documentation
 - CONTRIBUTE.md: instructions about contributing.
 - COMMANDS.md: instructions how to add commands.
 - MISC.md (TODO: make this): instructions how to add miscellaneous features.
