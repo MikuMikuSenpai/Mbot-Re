@@ -88,7 +88,6 @@ public class XpHelper {
         return levelThresholds.getOrDefault(level, -1);
     }
 
-
     public static Map<Integer, String> getLevelRoles() {
         return levelRoles;
     }
