@@ -26,6 +26,7 @@ public class BotConfiguration {
     private BotConfiguration() {
         Logger logger = LoggerFactory.getLogger(BotConfiguration.class);
         try {
+            this wont compile
             /*
             This is the var that holds the main bot token, make sure you have an environment variable
             with the key "BOT_TOKEN" and value your discord bot token
