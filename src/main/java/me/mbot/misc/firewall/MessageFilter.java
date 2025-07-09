@@ -11,7 +11,6 @@ import java.util.regex.Matcher;
 
 public class MessageFilter extends ListenerAdapter {
 
-    // these are the words that will trigger the bot
     private final List<String> bannedWords = Arrays.asList(
             "faggot", "fagg", "fagot",
             "nigger", "nigg", "niggr", "nggr", "ngger"

@@ -6,11 +6,7 @@
 
     <groupId>me.mikumiq</groupId>
     <artifactId>mBOT</artifactId>
-    <!--    ALPHA : Internal Testing phase              -->
-    <!--    BETA : Exclusive Testing phase              -->
-    <!--    NOTHING : Full Release (production) phase   -->
-    <!--    x.y.z : x=major/y=minor/z=patch             -->
-    <version>0.4.0-ALPHA</version>
+    <version>0.0.0</version>
 
     <properties>
         <maven.compiler.source>23</maven.compiler.source>

@@ -1,10 +1,10 @@
 # Mbot - Main Document
 Build with [JDA](https://github.com/discord-jda/JDA).
 
-## Reference to other docs
+## Documentation
 - CONTRIBUTE.md: instructions about contributing.
-- COMMANDS.md (TODO: make this): instructions how to add commands.
-- MISC.md (TODO: make this): instructions how to add miscellaneous features.
+- COMMANDS.md: instructions how to add commands.
+- MISC.md: instructions how to add miscellaneous features.
 
 ## How to run Mbot:
 1. Copy .example.env and create .env with your credentials.
@@ -19,14 +19,14 @@ Build with [JDA](https://github.com/discord-jda/JDA).
 
 ## Features
 - Message highlight: messages with a certain amount of stars are displayed in a specific channel.
-- A ton of moderation tools: /ban, /kick, /mute, /kill-switch (not accessible to all mods), message listeners for edited and deleted messages and log them in a specific (restricted) channel.
-- Non-slash commands that all start with "&" and are mainly for fun. The main commands are the slash "/" commands.
+- A ton of moderation tools: /ban, /kick, /mute, /kill-switch (can only be used by certain users (identified using their discord ID)), message listeners for edited and deleted messages and log them in a specific (restricted) channel.
+- Non-slash commands start with "&". The main commands are the slash "/" commands.
 
 ## Project Structure
-- **commands**: here goes all the commands that Mbot supports (both non-slash and slash commands for their documentation read their respective README's (TODO: add these).)
-- **configuration**: here goes all the configuration files that are used globally.
-- **main**: stores the psvm of this project should absolutely not be touched. Mbot uses the Singleton design pattern.
-- **misc**: everything goes here that does not fit in the others (for example loggers: edit, delete, highlight.)
+- **commands**: commands that Mbot supports.
+- **configuration**: configuration files that are used globally.
+- **main**: stores the psvm of this project should not be touched. Mbot is made using the Singleton design pattern.
+- **misc**: everything that does not fit in the other categories (for example loggers: edit, delete, highlight.)
 
 ## Authors
 - MikuMikuSenpai (owner)

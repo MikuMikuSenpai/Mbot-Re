@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * This class automatically loads SlashCommands that the bot will have such as "EchoCommand.java"
  * These SlashCommands come from SlashCommandListener.java which has a variable slashCommands that holds the commands
- * And via a public method BotMainListener uses "getCommands" to retrieve all SlashCommands
+ * And via a public method this class uses "getCommands" to retrieve all SlashCommands
  */
 public class BotMainListener extends ListenerAdapter {
     private final SlashCommandListener slashCommandListener;
