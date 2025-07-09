@@ -23,7 +23,7 @@ Build with [JDA](https://github.com/discord-jda/JDA).
 - Non-slash commands start with "&". The main commands are the slash "/" commands.
 
 ## Project Structure
-- **commands**: commands that Mbot supports (both non-slash and slash commands for their documentation read their respective READMEs (TODO: add these).)
+- **commands**: commands that Mbot supports.
 - **configuration**: configuration files that are used globally.
 - **main**: stores the psvm of this project should not be touched. Mbot is made using the Singleton design pattern.
 - **misc**: everything that does not fit in the other categories (for example loggers: edit, delete, highlight.)
