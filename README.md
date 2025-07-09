@@ -4,7 +4,7 @@ Build with [JDA](https://github.com/discord-jda/JDA).
 ## Documentation
 - CONTRIBUTE.md: instructions about contributing.
 - COMMANDS.md: instructions how to add commands.
-- MISC.md (TODO: make this): instructions how to add miscellaneous features.
+- MISC.md: instructions how to add miscellaneous features.
 
 ## How to run Mbot:
 1. Copy .example.env and create .env with your credentials.
