@@ -13,7 +13,7 @@ services:
   database:
     image: mysql
     command: --event_scheduler=ON
-    restart: always
+    restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: mbot
