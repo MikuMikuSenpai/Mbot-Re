@@ -7,6 +7,11 @@ Build with [JDA](https://github.com/discord-jda/JDA).
 - MISC.md: instructions how to add miscellaneous features.
 
 ## How to run Mbot:
+
+> [!TIP]
+> If you are not familiar with docker you can use "Play with Docker" which is an online and interactive way to learn the basics of docker. (You need to create a docker account.)
+> https://training.play-with-docker.com/
+
 1. Copy .example.env and create .env with your credentials.
 2. Use [docker](https://www.docker.com/) to start the bot:
     ```
