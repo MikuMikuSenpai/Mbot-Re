@@ -18,18 +18,15 @@ import org.slf4j.LoggerFactory;
 import java.util.EnumSet;
 
 /**
- * Use this class for main bot configuration. Add or remove important GatewayIntents as needed try to keep this as minimalistic
- * as possible because that's how we keep this bot optimized so that it doesn't use too many resources when running.
+ * Use this class for main bot configuration. Add or remove important GatewayIntents
+ * keep it as minimalistic as possible.
  */
 public class BotConfiguration {
 
     private BotConfiguration() {
         Logger logger = LoggerFactory.getLogger(BotConfiguration.class);
         try {
-            /*
-            This is the var that holds the main bot token, make sure you have an environment variable
-            with the key "BOT_TOKEN" and value your discord bot token
-             */
+
             String botToken = Constants.getBotToken();
 
             /*
@@ -56,8 +53,8 @@ public class BotConfiguration {
                             new XpListener()
                     )
                     .build()
-                    .awaitReady(); // waits for bot to finish loading (CTRL CLICK for more info)
-            logger.info(Constants.getBotVersion()); // print bot version
+                    .awaitReady();
+            logger.info(Constants.getBotVersion());
             /*
             Assign roles to all members based on their xp amount when bot starts,
             normally not needed but good for double check,
