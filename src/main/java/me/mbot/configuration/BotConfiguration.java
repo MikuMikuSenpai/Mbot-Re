@@ -18,8 +18,8 @@ import org.slf4j.LoggerFactory;
 import java.util.EnumSet;
 
 /**
- * Use this class for main bot configuration. Add or remove important GatewayIntents as needed try to keep this as minimalistic
- * as possible because that's how we keep this bot optimized so that it doesn't use too many resources when running.
+ * Use this class for main bot configuration. Add or remove important GatewayIntents
+ * keep it as minimalistic as possible.
  */
 public class BotConfiguration {
 
