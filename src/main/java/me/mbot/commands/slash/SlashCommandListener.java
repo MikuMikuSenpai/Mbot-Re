@@ -35,6 +35,7 @@ public class SlashCommandListener extends ListenerAdapter {
         register(new TodoCommand());
         register(new TodoListCommand());
         register(new TodoRemoveCommand());
+        register(new RemindCommand());
 
         // keep these two at the bottom at all times (in order for pagination to work)
         register(new HelpOPCommand(slashCommands));
