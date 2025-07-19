@@ -54,7 +54,6 @@ public class BotConfiguration {
                     )
                     .build()
                     .awaitReady();
-            logger.info(Constants.getBotVersion());
             /*
             Assign roles to all members based on their xp amount when bot starts,
             normally not needed but good for double check,
