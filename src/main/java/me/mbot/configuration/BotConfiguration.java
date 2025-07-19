@@ -7,6 +7,7 @@ import me.mbot.misc.firewall.MessageFilter;
 import me.mbot.misc.message_listeners.MessageDeleteListener;
 import me.mbot.misc.message_listeners.MessageEditListener;
 import me.mbot.misc.message_listeners.MessageHighlight;
+import me.mbot.misc.scheduler.ReminderService;
 import me.mbot.misc.xp_system.XpListener;
 import me.mbot.misc.xp_system.XpHelper;
 import net.dv8tion.jda.api.JDA;
@@ -60,6 +61,7 @@ public class BotConfiguration {
             makes sure that everyone has the role they should have after the bot is started
              */
             XpHelper.assignRolesOnStartup(jda);
+            new ReminderService(jda);
         } catch (IllegalArgumentException e) {
             logger.info("You forgot to set {} environment variable", Constants.getBotToken());
             logger.error(e.getMessage());

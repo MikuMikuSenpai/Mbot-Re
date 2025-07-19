@@ -36,6 +36,13 @@ CREATE TABLE IF NOT EXISTS user_todos (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS reminders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    remind_at TIMESTAMP NOT NULL,
+    note TEXT NOT NULL
+);
+
 -- auto delete old edit logs
 CREATE EVENT IF NOT EXISTS delete_old_logs_edit
 ON SCHEDULE EVERY 1 DAY
