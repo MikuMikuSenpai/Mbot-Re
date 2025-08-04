@@ -44,8 +44,8 @@ public class XpHelper {
         levelThresholds.put(levelFour, xpLevelFour); // 3500 msgs
         levelThresholds.put(levelFive, xpLevelFive); // 5000 msgs
 
-        levelRoles.put(levelZero, roleOneId);
-        levelRoles.put(levelOne, roleTwoId);
+        levelRoles.put(levelOne, roleOneId);
+        levelRoles.put(levelTwo, roleTwoId);
     }
 
     public static int getLevel(int xp) {
