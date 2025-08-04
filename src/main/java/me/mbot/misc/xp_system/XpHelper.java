@@ -32,9 +32,7 @@ public class XpHelper {
     private static final Integer xpLevelFour = 35_000;
     private static final Integer xpLevelFive = 50_000;
 
-
     static {
-        // x, y == x = level / y = xp threshold xp needed
         levelThresholds.put(levelZero, xpLevelZero);
         levelThresholds.put(levelOne, xpLevelOne); // 10 msgs
         levelThresholds.put(levelTwo, xpLevelTwo); // 52 msgs
