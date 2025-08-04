@@ -44,7 +44,6 @@ public class XpHelper {
         levelThresholds.put(levelFour, xpLevelFour); // 3500 msgs
         levelThresholds.put(levelFive, xpLevelFive); // 5000 msgs
 
-        // x, y == x = level / y = role ID (from .env = env var name String value is stored in BotConfiguration class)
         levelRoles.put(levelZero, roleOneId);
         levelRoles.put(levelOne, roleTwoId);
     }
@@ -70,7 +69,7 @@ public class XpHelper {
                         for (Member member : members) {
                             logger.info("Checking member: {}. Is bot?: {}", member.getEffectiveName(), member.getUser().isBot());
 
-                            if (member.getUser().isBot()) continue; // skip bot
+                            if (member.getUser().isBot()) continue;
 
                             int xp = XpDAO.getXP(member.getIdLong());
                             int level = XpHelper.getLevel(xp);
