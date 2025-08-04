@@ -28,7 +28,7 @@ public class XpHelper {
     private static final Integer xpLevelZero = 0;
     private static final Integer xpLevelOne = 100;
     private static final Integer xpLevelTwo = 520;
-    private static final Integer xpLevelThree = 18_000;
+    private static final Integer xpLevelThree = 1_800;
     private static final Integer xpLevelFour = 35_000;
     private static final Integer xpLevelFive = 50_000;
 
@@ -39,8 +39,8 @@ public class XpHelper {
         levelThresholds.put(levelOne, xpLevelOne); // 10 msgs
         levelThresholds.put(levelTwo, xpLevelTwo); // 52 msgs
         levelThresholds.put(levelThree, xpLevelThree); // 180 msgs
-        levelThresholds.put(levelFour, xpLevelFour); // 350 msgs
-        levelThresholds.put(levelFive, xpLevelFive); // 500 msgs
+        levelThresholds.put(levelFour, xpLevelFour); // 3500 msgs
+        levelThresholds.put(levelFive, xpLevelFive); // 5000 msgs
 
         // x, y == x = level / y = role ID (from .env = env var name String value is stored in BotConfiguration class)
         levelRoles.put(levelZero, "1364229036863393853");
