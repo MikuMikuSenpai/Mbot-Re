@@ -18,18 +18,33 @@ public class XpHelper {
     private static final NavigableMap<Integer, Integer> levelThresholds = new TreeMap<>();
     private static final Map<Integer, String> levelRoles = new TreeMap<>();
 
+    private static final Integer levelZero = 0;
+    private static final Integer levelOne = 1;
+    private static final Integer levelTwo = 2;
+    private static final Integer levelThree = 3;
+    private static final Integer levelFour = 4;
+    private static final Integer levelFive = 5;
+
+    private static final Integer xpLevelZero = 0;
+    private static final Integer xpLevelOne = 100;
+    private static final Integer xpLevelTwo = 520;
+    private static final Integer xpLevelThree = 18_000;
+    private static final Integer xpLevelFour = 35_000;
+    private static final Integer xpLevelFive = 50_000;
+
+
     static {
         // x, y == x = level / y = xp threshold xp needed
-        levelThresholds.put(0, 0);
-        levelThresholds.put(1, 100); // 10 msgs
-        levelThresholds.put(2, 520); // 52 msgs
-        levelThresholds.put(3, 18000); // 180 msgs
-        levelThresholds.put(4, 35000); // 350 msgs
-        levelThresholds.put(5, 50000); // 500 msgs
+        levelThresholds.put(levelZero, xpLevelZero);
+        levelThresholds.put(levelOne, xpLevelOne); // 10 msgs
+        levelThresholds.put(levelTwo, xpLevelTwo); // 52 msgs
+        levelThresholds.put(levelThree, xpLevelThree); // 180 msgs
+        levelThresholds.put(levelFour, xpLevelFour); // 350 msgs
+        levelThresholds.put(levelFive, xpLevelFive); // 500 msgs
 
         // x, y == x = level / y = role ID (from .env = env var name String value is stored in BotConfiguration class)
-        levelRoles.put(0, "1364229036863393853");
-        levelRoles.put(1, "1364229114818728006");
+        levelRoles.put(levelZero, "1364229036863393853");
+        levelRoles.put(levelOne, "1364229114818728006");
     }
 
     public static int getLevel(int xp) {
