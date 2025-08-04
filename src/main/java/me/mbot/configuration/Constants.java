@@ -13,6 +13,8 @@ public class Constants {
     private static final String BOT_TOKEN = System.getenv("BOT_TOKEN");
     private static final String CHANNEL_LOG_ID = System.getenv("CHANNEL_LOG_ID");
     private static final String CHANNEL_DARWIN_ID = System.getenv("CHANNEL_DARWIN_ID");
+    private static final String ROLE_1_ID = System.getenv("ROLE_1_ID");
+    private static final String ROLE_2_ID = System.getenv("ROLE_2_ID");
 
     private static final List<String> OWNER_USER_IDS = List.of(
             "519536495842033665", // mikumikusenpai
@@ -33,6 +35,14 @@ public class Constants {
 
     public static String getChannelDarwinId() {
         return CHANNEL_DARWIN_ID;
+    }
+
+    public static String getRole1Id() {
+        return ROLE_1_ID;
+    }
+
+    public static String getRole2Id() {
+        return ROLE_2_ID;
     }
 
     public static String getDBUrl() {

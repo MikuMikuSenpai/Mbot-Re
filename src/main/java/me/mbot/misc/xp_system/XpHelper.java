@@ -1,5 +1,6 @@
 package me.mbot.misc.xp_system;
 
+import me.mbot.configuration.Constants;
 import me.mbot.misc.dao.XpDAO;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
@@ -17,6 +18,9 @@ public class XpHelper {
     private static final Logger logger = LoggerFactory.getLogger(XpHelper.class);
     private static final NavigableMap<Integer, Integer> levelThresholds = new TreeMap<>();
     private static final Map<Integer, String> levelRoles = new TreeMap<>();
+
+    private static final String roleOneId = Constants.getRole1Id();
+    private static final String roleTwoId = Constants.getRole2Id();
 
     private static final Integer levelZero = 0;
     private static final Integer levelOne = 1;
@@ -41,8 +45,8 @@ public class XpHelper {
         levelThresholds.put(levelFive, xpLevelFive); // 5000 msgs
 
         // x, y == x = level / y = role ID (from .env = env var name String value is stored in BotConfiguration class)
-        levelRoles.put(levelZero, "1364229036863393853");
-        levelRoles.put(levelOne, "1364229114818728006");
+        levelRoles.put(levelZero, roleOneId);
+        levelRoles.put(levelOne, roleTwoId);
     }
 
     public static int getLevel(int xp) {
