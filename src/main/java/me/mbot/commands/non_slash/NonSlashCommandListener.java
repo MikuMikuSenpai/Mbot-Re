@@ -1,6 +1,7 @@
 package me.mbot.commands.non_slash;
 
 import me.mbot.commands.non_slash.api.NonSlashCommandHandler;
+import me.mbot.commands.non_slash.commands.FortuneCommand;
 import me.mbot.commands.non_slash.commands.NukeButtonCommand;
 import me.mbot.commands.non_slash.commands.HowardTheAlienCommand;
 import net.dv8tion.jda.api.entities.Member;
@@ -22,6 +23,7 @@ public class NonSlashCommandListener extends ListenerAdapter {
     public NonSlashCommandListener() {
         register(new NukeButtonCommand());
         register(new HowardTheAlienCommand());
+        register(new FortuneCommand());
     }
 
     private void register(NonSlashCommandHandler handler) {
