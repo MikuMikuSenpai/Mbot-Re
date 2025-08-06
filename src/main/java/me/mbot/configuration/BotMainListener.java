@@ -25,8 +25,7 @@ public class BotMainListener extends ListenerAdapter {
     /**
      * This method has a list "commandData" where slash commands will be put into using a for loop
      * after all the slash commands are put into the list they will be added to the guild using
-     * updateCommands().addCommands(commandData) so we basically give a list of slash commands to the guild
-     * and tell it to update.
+     * updateCommands().addCommands(commandData) we give a list of slash commands to the guild and tell it to update.
      *
      * @param event Variable when guild/ discord server is ready loading/ setting up.
      */
