@@ -18,7 +18,6 @@ import java.util.List;
 public class BotMainListener extends ListenerAdapter {
     private final SlashCommandListener slashCommandListener;
 
-    // Constructor for initializing slashCommandListener (final => must not change during runtime)
     public BotMainListener(SlashCommandListener slashCommandListener) {
         this.slashCommandListener = slashCommandListener;
     }
