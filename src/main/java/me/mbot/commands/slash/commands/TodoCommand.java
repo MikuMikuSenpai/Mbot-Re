@@ -22,7 +22,7 @@ public class TodoCommand implements SlashCommandHandler {
         long userId = event.getUser().getIdLong();
 
         if (TodoDAO.getTodoCount(userId) >= 5) {
-            event.reply("You already have 5 todos. Please remove some first!").setEphemeral(true).queue();
+            event.reply("You already have 5 todos. Please remove some first.").setEphemeral(true).queue();
             return;
         }
 
