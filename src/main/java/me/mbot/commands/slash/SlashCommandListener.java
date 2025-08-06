@@ -21,7 +21,6 @@ import java.util.Map;
 public class SlashCommandListener extends ListenerAdapter {
 
     private final Map<String, SlashCommandHandler> slashCommands = new HashMap<>();
-    private final NonSlashCommandListener nonSlashCommandListener = new NonSlashCommandListener();
 
     public SlashCommandListener() {
         // Admin commands
