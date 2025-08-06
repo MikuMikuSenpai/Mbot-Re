@@ -1,5 +1,6 @@
 package me.mbot.misc.xp_system;
 
+import me.mbot.configuration.Constants;
 import me.mbot.misc.dao.XpDAO;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
@@ -18,18 +19,33 @@ public class XpHelper {
     private static final NavigableMap<Integer, Integer> levelThresholds = new TreeMap<>();
     private static final Map<Integer, String> levelRoles = new TreeMap<>();
 
-    static {
-        // x, y == x = level / y = xp threshold xp needed
-        levelThresholds.put(0, 0);
-        levelThresholds.put(1, 100); // 10 msgs
-        levelThresholds.put(2, 520); // 52 msgs
-        levelThresholds.put(3, 18000); // 180 msgs
-        levelThresholds.put(4, 35000); // 350 msgs
-        levelThresholds.put(5, 50000); // 500 msgs
+    private static final String roleOneId = Constants.getRole1Id();
+    private static final String roleTwoId = Constants.getRole2Id();
 
-        // x, y == x = level / y = role ID (from .env = env var name String value is stored in BotConfiguration class)
-        levelRoles.put(0, "1364229036863393853");
-        levelRoles.put(1, "1364229114818728006");
+    private static final Integer levelZero = 0;
+    private static final Integer levelOne = 1;
+    private static final Integer levelTwo = 2;
+    private static final Integer levelThree = 3;
+    private static final Integer levelFour = 4;
+    private static final Integer levelFive = 5;
+
+    private static final Integer xpLevelZero = 0;
+    private static final Integer xpLevelOne = 100;
+    private static final Integer xpLevelTwo = 520;
+    private static final Integer xpLevelThree = 1_800;
+    private static final Integer xpLevelFour = 35_000;
+    private static final Integer xpLevelFive = 50_000;
+
+    static {
+        levelThresholds.put(levelZero, xpLevelZero);
+        levelThresholds.put(levelOne, xpLevelOne); // 10 msgs
+        levelThresholds.put(levelTwo, xpLevelTwo); // 52 msgs
+        levelThresholds.put(levelThree, xpLevelThree); // 180 msgs
+        levelThresholds.put(levelFour, xpLevelFour); // 3500 msgs
+        levelThresholds.put(levelFive, xpLevelFive); // 5000 msgs
+
+        levelRoles.put(levelOne, roleOneId);
+        levelRoles.put(levelTwo, roleTwoId);
     }
 
     public static int getLevel(int xp) {
@@ -53,7 +69,7 @@ public class XpHelper {
                         for (Member member : members) {
                             logger.info("Checking member: {}. Is bot?: {}", member.getEffectiveName(), member.getUser().isBot());
 
-                            if (member.getUser().isBot()) continue; // skip bot
+                            if (member.getUser().isBot()) continue;
 
                             int xp = XpDAO.getXP(member.getIdLong());
                             int level = XpHelper.getLevel(xp);
