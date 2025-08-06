@@ -31,13 +31,7 @@ public class NonSlashCommandListener extends ListenerAdapter {
     public Map<String, NonSlashCommandHandler> getCommands() {
         return nonSlashCommands;
     }
-
-    /**
-     * When a message is received on the server this method will be triggered. It will check if the author is a bot,
-     * if so, the message is ignored. The message is also ignored if the member does not exist somehow (null).
-     * Messages are also ignored if they don't start with ampersand ("&").
-     * @param event The message that is received by the bot.
-     */
+    
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         User author = event.getAuthor();
