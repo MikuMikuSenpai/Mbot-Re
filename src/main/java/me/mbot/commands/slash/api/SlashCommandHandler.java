@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 /**
  * API for SlashCommands comes with getName() and getDescription() (these two from its parent CommandMetaData (extends))
  * getCommandData() and handle().
- *
  */
 public interface SlashCommandHandler extends CommandMetaData {
 
@@ -22,11 +21,7 @@ public interface SlashCommandHandler extends CommandMetaData {
     default CommandData getCommandData(){
         return Commands.slash(getName(), getDescription());
     }
-
-    /**
-     *
-     * @param event The object where you can use methods on such as .reply()
-     */
+    
     void handle(SlashCommandInteractionEvent event);
 
     boolean isModCommand();
