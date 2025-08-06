@@ -59,7 +59,6 @@ public class NonSlashCommandListener extends ListenerAdapter {
         // if non slash command is not found aka handler, do nothing.
         if(handler == null) return;
 
-        // perform logic of command for example reply with "hi"
         handler.handle(event);
     }
 }
