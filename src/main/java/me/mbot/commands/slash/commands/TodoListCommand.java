@@ -53,6 +53,6 @@ public class TodoListCommand implements SlashCommandHandler {
 
     @Override
     public String getDescription() {
-        return "List all your TODO items.";
+        return "List all your todo items.";
     }
 }
