@@ -22,13 +22,18 @@ public class XpStatsCommand implements SlashCommandHandler {
         int currentLevelXP = XpHelper.getXPForLevel(level);
         int nextLevelXP = XpHelper.getXPForLevel(level + 1);
 
+        String embedTitle = "XP Stats";
+        String embedLevel = "Level";
+        String embedXp = "XP";
+        String embedProgressToNextLvl = "Progress to next level";
+
         if (nextLevelXP == -1) {
             // -1 means max level reached
             EmbedBuilder eb = new EmbedBuilder();
-            eb.setTitle("XP Stats");
-            eb.addField("Level", String.valueOf(level), true);
-            eb.addField("XP", String.valueOf(xp), true);
-            eb.addField("Progress to Next Level", "You've reached the max level", false);
+            eb.setTitle(embedTitle);
+            eb.addField(embedLevel, String.valueOf(level), true);
+            eb.addField(embedXp, String.valueOf(xp), true);
+            eb.addField(embedProgressToNextLvl, "You've reached the max level", false);
             eb.setFooter(event.getUser().getName(), event.getUser().getAvatarUrl());
             event.replyEmbeds(eb.build()).queue();
             return;
@@ -48,10 +53,10 @@ public class XpStatsCommand implements SlashCommandHandler {
         String percentage = String.format("%.2f", progressPercent * 100) + "%";
 
         EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle("XP Stats");
-        eb.addField("Level", String.valueOf(level), true);
-        eb.addField("XP", String.valueOf(xp), true);
-        eb.addField("Progress to Next Level", progressBar + " " + percentage, false);
+        eb.setTitle(embedTitle);
+        eb.addField(embedLevel, String.valueOf(level), true);
+        eb.addField(embedXp, String.valueOf(xp), true);
+        eb.addField(embedProgressToNextLvl, progressBar + " " + percentage, false);
         eb.setFooter(event.getUser().getName(), event.getUser().getAvatarUrl());
 
         event.replyEmbeds(eb.build()).queue();

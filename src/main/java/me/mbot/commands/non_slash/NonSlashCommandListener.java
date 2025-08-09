@@ -17,7 +17,6 @@ import java.util.Map;
  */
 public class NonSlashCommandListener extends ListenerAdapter {
 
-
     private final Map<String, NonSlashCommandHandler> nonSlashCommands = new HashMap<>();
 
     public NonSlashCommandListener() {
@@ -32,13 +31,7 @@ public class NonSlashCommandListener extends ListenerAdapter {
     public Map<String, NonSlashCommandHandler> getCommands() {
         return nonSlashCommands;
     }
-
-    /**
-     * When a message is received on the server this method will be triggered. It will check if the author is a bot,
-     * if so, the message is ignored. The message is also ignored if the member does not exist somehow (null).
-     * Messages are also ignored if they don't start with ampersand ("&").
-     * @param event The message that is received by the bot.
-     */
+    
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         User author = event.getAuthor();
@@ -50,11 +43,9 @@ public class NonSlashCommandListener extends ListenerAdapter {
         if (!message.startsWith("&")) return;
 
         /*
-        For example &somecommand some words => after substring (new string) "somecommand some words"
-        split will return an array of words that were split by the space so ["somecommand", "some", "words"]
-        and if we take the element of element 0 (remember array's start counting at 0) we can extract the command name.
-        Then we check if the command exists in the variable stored in this class if so then use the
-        handle method of the command so the logic.
+        Example: "&somecommand test test2" => substring begin at index 1 so it excludes "&" and split words
+        with a whitespace this will return ["somecommand", "test", "test2"] then extract the first element at index 0
+        being the nonSlashCommand / stuff after the ampersand "&"
          */
         String commandName = message.substring(1).split(" ")[0];
         NonSlashCommandHandler handler = nonSlashCommands.get(commandName);
@@ -62,7 +53,6 @@ public class NonSlashCommandListener extends ListenerAdapter {
         // if non slash command is not found aka handler, do nothing.
         if(handler == null) return;
 
-        // perform logic of command for example reply with "hi"
         handler.handle(event);
     }
 }

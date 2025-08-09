@@ -21,7 +21,6 @@ import java.util.Map;
 public class SlashCommandListener extends ListenerAdapter {
 
     private final Map<String, SlashCommandHandler> slashCommands = new HashMap<>();
-    private final NonSlashCommandListener nonSlashCommandListener = new NonSlashCommandListener();
 
     public SlashCommandListener() {
         // Admin commands
@@ -49,19 +48,12 @@ public class SlashCommandListener extends ListenerAdapter {
         slashCommands.put(handler.getName(), handler);
     }
 
-    /**
-     * Checks whether member and handler / slash command exist if not do nothing.
-     * If checks pass = handler.handle() perform command
-     * @param event The slash command being used.
-     */
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         SlashCommandHandler handler = slashCommands.get(event.getName());
-
         Member member = event.getMember();
 
         if (member == null) {return;}
-
         if (handler == null) {return;}
 
         handler.handle(event);

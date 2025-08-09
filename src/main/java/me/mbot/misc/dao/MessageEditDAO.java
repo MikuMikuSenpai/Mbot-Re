@@ -1,6 +1,8 @@
 package me.mbot.misc.dao;
 
 import me.mbot.configuration.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 
@@ -8,6 +10,7 @@ public class MessageEditDAO {
     private static final String DB_URL = Constants.getDBUrl();
     private static final String DB_USER = Constants.getDBUser();
     private static final String DB_PASSWORD = Constants.getDBPassword();
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageEditDAO.class);
 
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -22,7 +25,7 @@ public class MessageEditDAO {
             stmt.setString(4, newContent);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -32,7 +35,7 @@ public class MessageEditDAO {
             stmt.setString(1, messageId);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -45,7 +48,7 @@ public class MessageEditDAO {
                 return rs.getString("old_content");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return null;
     }

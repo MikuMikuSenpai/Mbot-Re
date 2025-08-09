@@ -22,14 +22,14 @@ public class TodoCommand implements SlashCommandHandler {
         long userId = event.getUser().getIdLong();
 
         if (TodoDAO.getTodoCount(userId) >= 5) {
-            event.reply("You already have 5 todos. Please remove some first!").setEphemeral(true).queue();
+            event.reply("You already have 5 todos. Please remove some first.").setEphemeral(true).queue();
             return;
         }
 
         int todoLength = Objects.requireNonNull(event.getOption("todo")).getAsString().length();
 
-        if (todoLength >= 129) {
-            event.reply("Your TODO is too long. The maximum length is 128 chars.").setEphemeral(true).queue();
+        if (todoLength > 128) {
+            event.reply("Your todo is too long. The maximum length is 128 chars.").setEphemeral(true).queue();
             return;
         }
 

@@ -21,12 +21,12 @@ public class TodoListCommand implements SlashCommandHandler {
         List<TodoEntry> todos = TodoDAO.getTodos(userId);
 
         if (todos.isEmpty()) {
-            event.reply("You have no todos. Do `/todo` to add a TODO task.").setEphemeral(true).queue();
+            event.reply("You have no todos. Do `/todo` to add a todo task.").setEphemeral(true).queue();
             return;
         }
 
         EmbedBuilder eb = new EmbedBuilder()
-                .setTitle("Your TODO list")
+                .setTitle("Your todo list")
                 .setColor(0xCD7F32); // bronze color
 
         for (int i = 0; i < todos.size(); i++) {
@@ -53,6 +53,6 @@ public class TodoListCommand implements SlashCommandHandler {
 
     @Override
     public String getDescription() {
-        return "List all your TODO items.";
+        return "List all your todo items.";
     }
 }
