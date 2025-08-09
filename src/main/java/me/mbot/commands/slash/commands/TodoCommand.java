@@ -28,7 +28,7 @@ public class TodoCommand implements SlashCommandHandler {
 
         int todoLength = Objects.requireNonNull(event.getOption("todo")).getAsString().length();
 
-        if (todoLength >= 129) {
+        if (todoLength > 128) {
             event.reply("Your todo is too long. The maximum length is 128 chars.").setEphemeral(true).queue();
             return;
         }
