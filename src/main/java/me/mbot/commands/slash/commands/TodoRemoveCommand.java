@@ -25,7 +25,7 @@ public class TodoRemoveCommand implements SlashCommandHandler {
         List<TodoEntry> todos = TodoDAO.getTodos(userId);
 
         if (index < 1 || index > todos.size()) {
-            event.reply("Invalid index! Use `/todo-list` to see your current todos.").setEphemeral(true).queue();
+            event.reply("Invalid index. Use `/todo-list` to see your current todos. The index must be between 1-5.").setEphemeral(true).queue();
             return;
         }
 
