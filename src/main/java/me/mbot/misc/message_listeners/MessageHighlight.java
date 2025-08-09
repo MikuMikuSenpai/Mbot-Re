@@ -1,5 +1,6 @@
 package me.mbot.misc.message_listeners;
 
+import me.mbot.configuration.Constants;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
@@ -12,7 +13,7 @@ import java.util.Date;
 
 public class MessageHighlight extends ListenerAdapter {
 
-    private String CHANNEL_LOG_ID = System.getenv("CHANNEL_LOG_ID");
+    private final String CHANNEL_DARWIN_ID = Constants.getChannelDarwinId();
 
     @Override
     public void onMessageReactionAdd(@NotNull MessageReactionAddEvent event) {
@@ -27,7 +28,7 @@ public class MessageHighlight extends ListenerAdapter {
                     .orElse(0);
 
             if (starCount >= 1) {
-                TextChannel highlightChannel = event.getGuild().getTextChannelById(CHANNEL_LOG_ID);
+                TextChannel highlightChannel = event.getGuild().getTextChannelById(CHANNEL_DARWIN_ID);
                 if (highlightChannel != null) {
                     highlightChannel.sendMessage(String.format(
                             "⭐ **%d** in <#%s>",
