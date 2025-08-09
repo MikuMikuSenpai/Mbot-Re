@@ -12,7 +12,7 @@ public class AntiSpamFilterDAO {
     private static final String DB_URL = Constants.getDBUrl();
     private static final String DB_USER = Constants.getDBUser();
     private static final String DB_PASSWORD = Constants.getDBPassword();
-    private static final Logger logger = LoggerFactory.getLogger(AntiSpamFilterDAO.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AntiSpamFilterDAO.class);
 
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -25,7 +25,7 @@ public class AntiSpamFilterDAO {
             stmt.setLong(2, timestamp);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -40,7 +40,7 @@ public class AntiSpamFilterDAO {
                 timestamps.add(rs.getLong("timestamp_ms"));
             }
         } catch (SQLException e) {
-            logger.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
         return timestamps;
     }
@@ -51,7 +51,7 @@ public class AntiSpamFilterDAO {
             stmt.setString(1, userId);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 }
