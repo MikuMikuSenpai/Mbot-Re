@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS reminders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
     remind_at TIMESTAMP NOT NULL,
-    note TEXT NOT NULL
+    note TEXT NOT NULL,
+    channel_id VARCHAR(50) NOT NULL
 );
 
 -- auto delete old edit logs

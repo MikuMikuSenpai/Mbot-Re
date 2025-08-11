@@ -15,12 +15,13 @@ public class ReminderDAO {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
 
-    public static void insertReminder(long userId, Timestamp remindAt, String note) {
-        String sql = "INSERT INTO reminders (user_id, remind_at, note) VALUES (?, ?, ?)";
+    public static void insertReminder(long userId, Timestamp remindAt, String note, String channelId) {
+        String sql = "INSERT INTO reminders (user_id, remind_at, note, channel_id) VALUES (?, ?, ?, ?)";
         try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setLong(1, userId);
             stmt.setTimestamp(2, remindAt);
             stmt.setString(3, note);
+            stmt.setString(4, channelId);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -29,7 +30,7 @@ public class ReminderDAO {
 
     public static List<Reminder> getDueReminders() {
         List<Reminder> reminders = new ArrayList<>();
-        String sql = "SELECT id, user_id, remind_at, note FROM reminders WHERE remind_at <= NOW()";
+        String sql = "SELECT id, user_id, remind_at, note, channel_id FROM reminders WHERE remind_at <= NOW()";
         try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -37,7 +38,8 @@ public class ReminderDAO {
                         rs.getInt("id"),
                         rs.getLong("user_id"),
                         rs.getTimestamp("remind_at"),
-                        rs.getString("note")
+                        rs.getString("note"),
+                        rs.getString("channel_id")
                 ));
             }
         } catch (SQLException e) {
@@ -56,5 +58,5 @@ public class ReminderDAO {
         }
     }
 
-    public record Reminder(int id, long userId, Timestamp remindAt, String note) {}
+    public record Reminder(int id, long userId, Timestamp remindAt, String note, String channelId) {}
 }

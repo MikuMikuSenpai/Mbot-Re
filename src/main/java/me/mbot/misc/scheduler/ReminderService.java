@@ -35,14 +35,14 @@ public class ReminderService {
         List<ReminderDAO.Reminder> reminders = ReminderDAO.getDueReminders();
         if (reminders.isEmpty()) return;
 
-        TextChannel logChannel = jda.getTextChannelById(Constants.getChannelLogId());
-        if (logChannel == null) {
-            logger.error("Failed to find log channel.");
-            return;
-        }
-
         for (ReminderDAO.Reminder reminder : reminders) {
-            logChannel.sendMessage("<@" + reminder.userId() + "> Reminder: **" + reminder.note() + "**")
+            TextChannel targetCh = jda.getTextChannelById(reminder.channelId());
+
+            if (targetCh == null) {
+                logger.error("Reminder channel id not found: {}", reminder.channelId());
+            }
+
+            targetCh.sendMessage("<@" + reminder.userId() + "> Reminder: **" + reminder.note() + "**")
                     .queue(
                             success -> ReminderDAO.deleteReminder(reminder.id()),
                             failure -> logger.error("Failed to send reminder for user {}", reminder.userId())

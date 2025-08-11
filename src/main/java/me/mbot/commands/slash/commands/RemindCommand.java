@@ -32,8 +32,9 @@ public class RemindCommand implements SlashCommandHandler {
 
         Timestamp remindAt = Timestamp.from(Instant.now().plusMillis(delayMillis));
         long userId = event.getUser().getIdLong();
+        String channelId = event.getChannel().getId();
 
-        ReminderDAO.insertReminder(userId, remindAt, note);
+        ReminderDAO.insertReminder(userId, remindAt, note, channelId);
         event.reply("Reminder set for <t:" + (remindAt.getTime() / 1000) + ":R>: " + note).queue();
     }
 
