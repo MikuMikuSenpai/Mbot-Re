@@ -12,7 +12,7 @@ public class TodoDAO {
     private static final String DB_URL = Constants.getDBUrl();
     private static final String DB_USER = Constants.getDBUser();
     private static final String DB_PASSWORD = Constants.getDBPassword();
-    private static final Logger logger = LoggerFactory.getLogger(TodoDAO.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TodoDAO.class);
 
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -25,7 +25,7 @@ public class TodoDAO {
             stmt.setString(2, todo);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class TodoDAO {
                 ));
             }
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         return todos;
     }
@@ -56,7 +56,7 @@ public class TodoDAO {
                 return rs.getInt(1);
             }
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         return 0;
     }
@@ -67,7 +67,7 @@ public class TodoDAO {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }

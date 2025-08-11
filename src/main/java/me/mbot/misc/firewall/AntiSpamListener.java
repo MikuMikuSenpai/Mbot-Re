@@ -3,6 +3,7 @@ package me.mbot.misc.firewall;
 import me.mbot.configuration.Constants;
 import me.mbot.misc.dao.AntiSpamFilterDAO;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -17,11 +18,16 @@ public class AntiSpamListener extends ListenerAdapter {
     private static final long TIME_IN_MS = 2000;
     private static final Duration TIMEOUT_DURATION = Duration.ofMinutes(10);
     private final String CHANNEL_LOG_ID = Constants.getChannelLogId();
+    private final String MODERATOR_ROLE_ID = Constants.getModeratorRoleId();
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
         if (event.getMember() == null) return;
+
+        Role moderatorRole = event.getGuild().getRoleById(MODERATOR_ROLE_ID);
+        if (event.getMember().getRoles().contains(moderatorRole))
+            return;
 
         String userId = event.getAuthor().getId();
         long now = System.currentTimeMillis();

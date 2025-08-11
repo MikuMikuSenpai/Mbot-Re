@@ -1,6 +1,8 @@
 package me.mbot.misc.dao;
 
 import me.mbot.configuration.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.List;
@@ -9,6 +11,7 @@ public class MessageDeleteDAO {
     private static final String DB_URL = Constants.getDBUrl();
     private static final String DB_USER = Constants.getDBUser();
     private static final String DB_PASSWORD = Constants.getDBPassword();
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageDeleteDAO.class);
 
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -25,7 +28,7 @@ public class MessageDeleteDAO {
             stmt.setString(6, String.join(",", videoUrls));
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -39,7 +42,7 @@ public class MessageDeleteDAO {
                 return csv == null || csv.isEmpty() ? List.of() : List.of(csv.split(","));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return List.of();
     }
@@ -54,7 +57,7 @@ public class MessageDeleteDAO {
                 return csv == null || csv.isEmpty() ? List.of() : List.of(csv.split(","));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return List.of();
     }
@@ -68,7 +71,7 @@ public class MessageDeleteDAO {
                 return rs.getString("content");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return null;
     }
@@ -82,7 +85,7 @@ public class MessageDeleteDAO {
                 return rs.getString("user_id");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return null;
     }
@@ -96,7 +99,7 @@ public class MessageDeleteDAO {
                 return rs.getString("channel_id");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return null;
     }

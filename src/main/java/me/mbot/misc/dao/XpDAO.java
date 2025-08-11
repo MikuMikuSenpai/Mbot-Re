@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.sql.*;
 
 public class XpDAO {
-    private static final Logger logger = LoggerFactory.getLogger(XpDAO.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(XpDAO.class);
 
     private static Connection getConnection() {
         try {
@@ -16,7 +16,7 @@ public class XpDAO {
                     Constants.getDBUser(),
                     Constants.getDBPassword());
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -28,7 +28,7 @@ public class XpDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) return rs.getInt("xp");
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         return 0;
     }
@@ -44,7 +44,7 @@ public class XpDAO {
             insert.setInt(3, xpToAdd);
             insert.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }

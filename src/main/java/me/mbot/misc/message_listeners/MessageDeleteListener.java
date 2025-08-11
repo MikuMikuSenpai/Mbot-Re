@@ -1,5 +1,6 @@
 package me.mbot.misc.message_listeners;
 
+import me.mbot.configuration.Constants;
 import me.mbot.misc.dao.MessageDeleteDAO;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class MessageDeleteListener extends ListenerAdapter {
 
-    private final String CHANNEL_LOG_ID = System.getenv("CHANNEL_LOG_ID");
+    private final String CHANNEL_LOG_ID = Constants.getChannelLogId();
 
     @Override
     public void onMessageDelete(MessageDeleteEvent event) {
