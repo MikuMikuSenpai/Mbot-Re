@@ -73,9 +73,9 @@ public class BotConfiguration {
         }
         // check if env variables are set (excluding BOT_TOKEN)
         if (Constants.getChannelLogId() == null || Constants.getChannelLogId().isEmpty())
-            logger.warn("{} environment variable is empty and could lead to unexpected errors.", Constants.getChannelLogId());
+            logger.warn("CHANNEL_LOG_ID environment variable is empty and could lead to unexpected errors.");
         if (Constants.getChannelDarwinId() == null || Constants.getChannelDarwinId().isEmpty())
-            logger.warn("{} environment variable is empty and could lead to unexpected errors.", Constants.getChannelDarwinId());
+            logger.warn("CHANNEL_DARWIN_ID environment variable is empty and could lead to unexpected errors.");
     }
 
     /**
