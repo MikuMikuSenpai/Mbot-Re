@@ -63,7 +63,7 @@ public class BotConfiguration {
             XpHelper.assignRolesOnStartup(jda);
             new ReminderService(jda);
         } catch (IllegalArgumentException e) {
-            logger.info("You forgot to set {} environment variable", Constants.getBotToken());
+            logger.warn("BOT_TOKEN environment variable missing.");
             logger.error(e.getMessage());
         } catch (InterruptedException e) {
             logger.info("awaitReady() was interrupted");
