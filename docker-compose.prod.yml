@@ -6,9 +6,6 @@ services:
     image: ghcr.io/mikumikusenpai/mbot-re:latest
     env_file:
       - .env
-    environment:
-      - BOT_TOKEN=${BOT_TOKEN}
-      - CHANNEL_LOG_ID=${CHANNEL_LOG_ID}
 
   database:
     image: mysql
